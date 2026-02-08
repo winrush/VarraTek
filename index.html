@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varratek Security — Enterprise-Grade Cybersecurity & IT Consulting</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Brand Colors - More sophisticated, less vibrant */
+            --navy-950: #06101f;
+            --navy-900: #0a1628;
+            --navy-800: #0d1a2d;
+            --navy-700: #13233a;
+            --charcoal: #1c2736;
+            --teal: #00a8cc;
+            --teal-bright: #00c4e8;
+            --teal-glow: rgba(0, 168, 204, 0.08);
+            --teal-dim: #007a94;
+            
+            /* Neutrals - Refined palette */
+            --white: #ffffff;
+            --gray-50: #fafbfc;
+            --gray-100: #f4f5f7;
+            --gray-200: #e4e7eb;
+            --gray-300: #9ba3af;
+            --gray-400: #6b7280;
+            --gray-500: #4b5563;
+            --gray-600: #374151;
+            
+            /* Typography */
+            --font-serif: 'Instrument Serif', Georgia, serif;
+            --font-sans: 'Archivo', -apple-system, sans-serif;
+            
+            /* Spacing - More generous, enterprise rhythm */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 3rem;
+            --space-xl: 5rem;
+            --space-2xl: 8rem;
+            --space-3xl: 12rem;
+            
+            /* Transitions - Subtler, more refined */
+            --transition-smooth: all 0.35s cubic-bezier(0.32, 0.08, 0.24, 1);
+            --transition-quick: all 0.2s cubic-bezier(0.32, 0.08, 0.24, 1);
+            --transition-slow: all 0.6s cubic-bezier(0.32, 0.08, 0.24, 1);
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--navy-950);
+            color: var(--gray-100);
+            line-height: 1.65;
+            overflow-x: hidden;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Grid Background - Much more subtle */
+        .grid-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.015;
+            background-image: 
+                linear-gradient(var(--teal) 1px, transparent 1px),
+                linear-gradient(90deg, var(--teal) 1px, transparent 1px);
+            background-size: 120px 120px;
+            pointer-events: none;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            padding: var(--space-lg) 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(6, 16, 31, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 168, 204, 0.08);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-sans);
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            color: var(--white);
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-lg);
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--gray-300);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.01em;
+            transition: var(--transition-quick);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--teal);
+            transition: var(--transition-quick);
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-header {
+            padding: 0.75rem 1.75rem;
+            background: transparent;
+            border: 1px solid rgba(0, 168, 204, 0.3);
+            color: var(--white);
+            font-family: var(--font-sans);
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            text-transform: uppercase;
+        }
+
+        .cta-header:hover {
+            background: var(--teal);
+            border-color: var(--teal);
+            color: var(--navy-950);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px var(--teal-glow);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -15%;
+            width: 60%;
+            height: 120%;
+            background: radial-gradient(circle, var(--teal-glow) 0%, transparent 60%);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 920px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 0.5rem 0;
+            color: var(--teal);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: var(--space-md);
+            border-left: 2px solid var(--teal);
+            padding-left: var(--space-sm);
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 5.25rem;
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            margin-bottom: var(--space-lg);
+        }
+
+        .hero h1 .highlight {
+            font-style: italic;
+            color: var(--teal-bright);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-300);
+            max-width: 720px;
+            margin-bottom: var(--space-xl);
+            line-height: 1.75;
+            font-weight: 400;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: var(--space-md);
+            align-items: center;
+        }
+
+        .btn-primary {
+            padding: 1.15rem 2.5rem;
+            background: var(--teal);
+            color: var(--navy-950);
+            border: none;
+            font-family: var(--font-sans);
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            text-transform: uppercase;
+        }
+
+        .btn-primary:hover {
+            background: var(--teal-bright);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px var(--teal-glow);
+        }
+
+        .btn-secondary {
+            padding: 1.15rem 2.5rem;
+            background: transparent;
+            color: var(--gray-200);
+            border: 1px solid var(--gray-500);
+            font-family: var(--font-sans);
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            text-transform: uppercase;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--white);
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        /* Section Styling */
+        section {
+            padding: var(--space-3xl) 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto var(--space-2xl);
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 0 0 0 var(--space-sm);
+            border-left: 2px solid var(--teal);
+            color: var(--teal);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: var(--space-md);
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 3.25rem;
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.015em;
+            color: var(--white);
+            margin-bottom: var(--space-lg);
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--gray-300);
+            line-height: 1.75;
+            font-weight: 400;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-2xl);
+        }
+
+        .service-card {
+            background: rgba(13, 26, 45, 0.4);
+            border: 1px solid rgba(0, 168, 204, 0.08);
+            padding: var(--space-xl);
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 0;
+            background: var(--teal);
+            transition: var(--transition-smooth);
+        }
+
+        .service-card:hover::before {
+            height: 100%;
+        }
+
+        .service-card:hover {
+            background: rgba(13, 26, 45, 0.6);
+            border-color: rgba(0, 168, 204, 0.15);
+            transform: translateX(4px);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-lg);
+            opacity: 0.6;
+            transition: var(--transition-smooth);
+        }
+
+        .service-card:hover .service-icon {
+            opacity: 1;
+        }
+
+        .service-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--teal);
+            stroke-width: 1.5;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-sans);
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: var(--space-md);
+            letter-spacing: -0.005em;
+            line-height: 1.3;
+        }
+
+        .service-card p {
+            color: var(--gray-300);
+            line-height: 1.75;
+            font-size: 0.95rem;
+        }
+
+        /* Why Varratek Section */
+        .why-tekvarra {
+            background: linear-gradient(180deg, var(--navy-900) 0%, var(--navy-800) 100%);
+            border-top: 1px solid rgba(0, 168, 204, 0.08);
+            border-bottom: 1px solid rgba(0, 168, 204, 0.08);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-2xl) var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+
+        .feature-item {
+            display: flex;
+            gap: var(--space-lg);
+            align-items: flex-start;
+        }
+
+        .feature-number {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--teal);
+            line-height: 1;
+            min-width: 40px;
+            letter-spacing: 0.05em;
+        }
+
+        .feature-content h3 {
+            font-family: var(--font-sans);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: var(--space-sm);
+            letter-spacing: -0.005em;
+            line-height: 1.3;
+        }
+
+        .feature-content p {
+            color: var(--gray-300);
+            line-height: 1.75;
+            font-size: 0.95rem;
+        }
+
+        /* Process Section */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+            position: relative;
+        }
+
+        .process-step {
+            text-align: left;
+            padding: var(--space-lg) 0;
+            position: relative;
+            border-top: 1px solid rgba(0, 168, 204, 0.15);
+            transition: var(--transition-smooth);
+        }
+
+        .process-step:hover {
+            border-top-color: var(--teal);
+        }
+
+        .process-number {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--teal);
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-md);
+        }
+
+        .process-step h3 {
+            font-family: var(--font-sans);
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: var(--space-sm);
+            line-height: 1.3;
+        }
+
+        .process-step p {
+            color: var(--gray-300);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* Technology Section */
+        .tech-section {
+            background: var(--navy-900);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1px;
+            margin-top: var(--space-2xl);
+            background: rgba(0, 168, 204, 0.08);
+            border: 1px solid rgba(0, 168, 204, 0.08);
+        }
+
+        .tech-item {
+            aspect-ratio: 1.5;
+            background: var(--navy-950);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .tech-item:hover {
+            background: rgba(13, 26, 45, 0.8);
+            z-index: 1;
+        }
+
+        .tech-item span {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--gray-400);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: var(--transition-quick);
+        }
+
+        .tech-item:hover span {
+            color: var(--teal);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--navy-800);
+            border-top: 1px solid rgba(0, 168, 204, 0.12);
+            padding: var(--space-3xl) 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: var(--white);
+            margin-bottom: var(--space-lg);
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-section p {
+            font-size: 1.15rem;
+            color: var(--gray-300);
+            margin-bottom: var(--space-xl);
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.75;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy-950);
+            border-top: 1px solid rgba(0, 168, 204, 0.08);
+            padding: var(--space-2xl) 0 var(--space-xl);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .footer-brand .logo {
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-brand p {
+            color: var(--gray-400);
+            max-width: 320px;
+            line-height: 1.75;
+            font-size: 0.9rem;
+        }
+
+        .footer-column h4 {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: var(--space-md);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-column ul li a {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: var(--transition-quick);
+            font-size: 0.9rem;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--teal);
+        }
+
+        .footer-bottom {
+            padding-top: var(--space-xl);
+            border-top: 1px solid rgba(0, 168, 204, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--gray-400);
+            font-size: 0.85rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(0, 168, 204, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+        }
+
+        .social-links a:hover {
+            border-color: var(--teal);
+            background: rgba(0, 168, 204, 0.05);
+        }
+
+        .social-links svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--gray-400);
+            transition: var(--transition-quick);
+        }
+
+        .social-links a:hover svg {
+            stroke: var(--teal);
+        }
+
+        /* Scroll Animations - Subtle and refined */
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.32, 0.08, 0.24, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 4.25rem;
+            }
+            
+            .section-title {
+                font-size: 2.75rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --space-lg: 2rem;
+                --space-xl: 3rem;
+                --space-2xl: 5rem;
+                --space-3xl: 7rem;
+            }
+            
+            .hero {
+                padding-top: 140px;
+            }
+            
+            .hero h1 {
+                font-size: 2.75rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 2.25rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-cta-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+            
+            .process-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: var(--space-md);
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Grid Background -->
+    <div class="grid-background"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">VARRATEK</div>
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#why-tekvarra">Why Us</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#technology">Technology</a></li>
+                </ul>
+                <button class="cta-header">Get Started</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-tag">Cybersecurity • IT Consulting</span>
+                <h1>Enterprise-Grade <span class="highlight">Security</span> for Modern Infrastructure</h1>
+                <p class="hero-subtitle">Protecting systems. Hardening networks. Securing growth. Varratek delivers proactive, compliance-ready cybersecurity solutions built for enterprises that refuse to compromise.</p>
+                <div class="hero-cta-group">
+                    <button class="btn-primary">Schedule a Consultation</button>
+                    <button class="btn-secondary">View Services</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">What We Deliver</span>
+                <h2 class="section-title">Comprehensive Security Services</h2>
+                <p class="section-description">From risk assessment to 24/7 monitoring, we provide the full spectrum of cybersecurity and IT consulting services your enterprise demands.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                        </svg>
+                    </div>
+                    <h3>Cybersecurity Audits & Risk Assessments</h3>
+                    <p>Comprehensive vulnerability analysis, penetration testing, and threat modeling to identify and quantify risks across your infrastructure before they become breaches.</p>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z" />
+                        </svg>
+                    </div>
+                    <h3>Network Security & Architecture</h3>
+                    <p>Design, implement, and optimize secure network architectures with zero-trust principles, advanced segmentation, and enterprise-grade firewall configurations.</p>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z" />
+                        </svg>
+                    </div>
+                    <h3>Infrastructure & System Hardening</h3>
+                    <p>Fortify servers, endpoints, and cloud environments using industry best practices, baseline configurations, and defense-in-depth strategies that reduce attack surface.</p>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" />
+                        </svg>
+                    </div>
+                    <h3>IT Consulting & Advisory</h3>
+                    <p>Strategic guidance on technology stack decisions, cloud migrations, compliance frameworks, and security roadmap development aligned with business objectives.</p>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <h3>Monitoring & Incident Response</h3>
+                    <p>24/7 security operations center (SOC) monitoring, real-time threat detection, rapid incident response, and forensic analysis to minimize damage and recovery time.</p>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+                        </svg>
+                    </div>
+                    <h3>Compliance & Governance</h3>
+                    <p>Navigate complex regulatory requirements including SOC 2, ISO 27001, HIPAA, PCI DSS, and GDPR with tailored compliance frameworks and audit preparation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Varratek Section -->
+    <section id="why-tekvarra" class="why-tekvarra">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">The Varratek Difference</span>
+                <h2 class="section-title">Why Enterprises Choose Varratek</h2>
+                <p class="section-description">We're not just another security vendor. We're your technical partners, deeply invested in building resilient infrastructure that scales with your business.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-item fade-in">
+                    <div class="feature-number">01</div>
+                    <div class="feature-content">
+                        <h3>Security-First Engineering Mindset</h3>
+                        <p>Our team brings decades of combined experience in offensive and defensive security, systems engineering, and enterprise architecture. We think like attackers to defend like experts.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item fade-in">
+                    <div class="feature-number">02</div>
+                    <div class="feature-content">
+                        <h3>Enterprise-Grade Tooling & Practices</h3>
+                        <p>We deploy the same security infrastructure used by Fortune 500 companies—SIEM platforms, EDR solutions, network segmentation, and advanced threat intelligence that actually works.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item fade-in">
+                    <div class="feature-number">03</div>
+                    <div class="feature-content">
+                        <h3>Compliance-Aware Solutions</h3>
+                        <p>Every recommendation considers your regulatory landscape. We build security frameworks that satisfy auditors while remaining practical for your operations team.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item fade-in">
+                    <div class="feature-number">04</div>
+                    <div class="feature-content">
+                        <h3>Proactive, Not Reactive Security</h3>
+                        <p>Breaches are inevitable. Our approach focuses on detection, containment, and rapid response—not just prevention. We prepare you for when, not if, an incident occurs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Our Methodology</span>
+                <h2 class="section-title">Four-Phase Security Framework</h2>
+                <p class="section-description">A systematic approach to building and maintaining enterprise security that evolves with your threat landscape.</p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-step fade-in">
+                    <div class="process-number">01</div>
+                    <h3>Assess</h3>
+                    <p>Comprehensive discovery and risk analysis. We map your attack surface, identify vulnerabilities, and prioritize threats based on business impact.</p>
+                </div>
+
+                <div class="process-step fade-in">
+                    <div class="process-number">02</div>
+                    <h3>Secure</h3>
+                    <p>Implement defense layers across network, endpoint, and application tiers. Deploy encryption, access controls, and secure configurations.</p>
+                </div>
+
+                <div class="process-step fade-in">
+                    <div class="process-number">03</div>
+                    <h3>Harden</h3>
+                    <p>Eliminate unnecessary services, patch vulnerabilities, enforce least privilege, and reduce attack vectors to minimal exposure.</p>
+                </div>
+
+                <div class="process-step fade-in">
+                    <div class="process-number">04</div>
+                    <h3>Monitor</h3>
+                    <p>Continuous surveillance, threat hunting, and incident response. Real-time alerts, forensic capabilities, and adaptive defense strategies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="tech-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Technology Stack</span>
+                <h2 class="section-title">Enterprise Security Infrastructure</h2>
+                <p class="section-description">We leverage industry-leading platforms and tools to deliver defense-in-depth security architectures.</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-item fade-in"><span>AWS</span></div>
+                <div class="tech-item fade-in"><span>Azure</span></div>
+                <div class="tech-item fade-in"><span>GCP</span></div>
+                <div class="tech-item fade-in"><span>Kubernetes</span></div>
+                <div class="tech-item fade-in"><span>Palo Alto</span></div>
+                <div class="tech-item fade-in"><span>CrowdStrike</span></div>
+                <div class="tech-item fade-in"><span>Splunk</span></div>
+                <div class="tech-item fade-in"><span>Sentinel</span></div>
+                <div class="tech-item fade-in"><span>Tenable</span></div>
+                <div class="tech-item fade-in"><span>Qualys</span></div>
+                <div class="tech-item fade-in"><span>Okta</span></div>
+                <div class="tech-item fade-in"><span>Terraform</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2>Let's secure your infrastructure—properly.</h2>
+                <p>Schedule a consultation with our security architects to discuss your infrastructure, compliance requirements, and threat landscape.</p>
+                <button class="btn-primary">Schedule a Consultation</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">VARRATEK</div>
+                    <p>Enterprise-grade cybersecurity and IT consulting for organizations that refuse to compromise on security.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Cybersecurity Audits</a></li>
+                        <li><a href="#services">Network Security</a></li>
+                        <li><a href="#services">System Hardening</a></li>
+                        <li><a href="#services">IT Consulting</a></li>
+                        <li><a href="#services">Incident Response</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#why-tekvarra">About</a></li>
+                        <li><a href="#process">Process</a></li>
+                        <li><a href="#technology">Technology</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Security Blog</a></li>
+                        <li><a href="#">Compliance Guides</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Varratek Security. All rights reserved. | <a href="#" style="color: var(--gray-400); text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: var(--gray-400); text-decoration: none;">Terms of Service</a></p>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll - subtle changes only
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 80) {
+                header.style.background = 'rgba(6, 16, 31, 0.95)';
+                header.style.borderBottomColor = 'rgba(0, 168, 204, 0.12)';
+            } else {
+                header.style.background = 'rgba(6, 16, 31, 0.8)';
+                header.style.borderBottomColor = 'rgba(0, 168, 204, 0.08)';
+            }
+        });
+
+        // CTA Button interactions
+        document.querySelectorAll('.btn-primary, .btn-secondary, .cta-header').forEach(button => {
+            button.addEventListener('click', () => {
+                alert('Thank you for your interest! A consultation scheduling form would appear here.');
+            });
+        });
+    </script>
+</body>
+</html>
