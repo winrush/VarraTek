@@ -537,6 +537,382 @@
             color: var(--teal);
         }
 
+        /* ========== PRICING SECTION ========== */
+        .pricing-section {
+            background: linear-gradient(180deg, var(--navy-950) 0%, var(--navy-900) 50%, var(--navy-950) 100%);
+            border-top: 1px solid rgba(0, 168, 204, 0.08);
+        }
+
+        /* Testimonial strip */
+        .testimonial-strip {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-xl);
+            flex-wrap: wrap;
+            padding: var(--space-lg) var(--space-md);
+            margin-bottom: var(--space-2xl);
+            border: 1px solid rgba(0, 168, 204, 0.1);
+            background: rgba(13, 26, 45, 0.3);
+            border-radius: 2px;
+        }
+
+        .testimonial-strip p {
+            color: var(--gray-300);
+            font-size: 1rem;
+            font-style: italic;
+            max-width: 720px;
+            text-align: center;
+            line-height: 1.7;
+        }
+
+        .testimonial-strip .attribution {
+            font-style: normal;
+            font-size: 0.85rem;
+            color: var(--teal);
+            font-weight: 600;
+        }
+
+        /* Trust badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-xl);
+            flex-wrap: wrap;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--gray-400);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+        }
+
+        .trust-badge svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--teal);
+            flex-shrink: 0;
+        }
+
+        /* Pricing grid - 3 columns, Premium centered and emphasized */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.08fr 1fr;
+            gap: var(--space-lg);
+            align-items: stretch;
+            max-width: 1200px;
+            margin: 0 auto var(--space-2xl);
+        }
+
+        .pricing-card {
+            background: rgba(13, 26, 45, 0.5);
+            border: 1px solid rgba(0, 168, 204, 0.08);
+            padding: var(--space-xl);
+            transition: var(--transition-smooth);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            border-radius: 2px;
+        }
+
+        .pricing-card-standard {
+            border-color: rgba(107, 114, 128, 0.25);
+            min-height: 520px;
+        }
+
+        .pricing-card-standard:hover {
+            border-color: rgba(107, 114, 128, 0.4);
+            background: rgba(13, 26, 45, 0.65);
+        }
+
+        .pricing-card-premium {
+            background: rgba(13, 26, 45, 0.7);
+            border: 1px solid rgba(0, 168, 204, 0.25);
+            box-shadow: 0 0 40px rgba(0, 168, 204, 0.12), 0 20px 40px rgba(0, 0, 0, 0.3);
+            min-height: 580px;
+            z-index: 2;
+            transform: scale(1.02);
+        }
+
+        .pricing-card-premium::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 2px;
+            padding: 1px;
+            background: linear-gradient(135deg, var(--teal), var(--teal-bright), var(--teal));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .pricing-card-premium:hover {
+            box-shadow: 0 0 60px rgba(0, 168, 204, 0.2), 0 24px 48px rgba(0, 0, 0, 0.35);
+            transform: scale(1.03) translateY(-4px);
+            border-color: rgba(0, 168, 204, 0.4);
+        }
+
+        .pricing-card-exclusive {
+            background: linear-gradient(180deg, rgba(6, 16, 31, 0.95) 0%, rgba(13, 26, 45, 0.8) 100%);
+            border: 1px solid rgba(0, 168, 204, 0.12);
+            min-height: 560px;
+        }
+
+        .pricing-card-exclusive::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--teal), transparent);
+            background-size: 200% 100%;
+            animation: glow-line 3s ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes glow-line {
+            0%, 100% { background-position: 100% 0; }
+            50% { background-position: 0 0; }
+        }
+
+        .pricing-card-exclusive:hover {
+            border-color: rgba(0, 168, 204, 0.2);
+            background: linear-gradient(180deg, rgba(6, 16, 31, 0.98) 0%, rgba(13, 26, 45, 0.9) 100%);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--teal);
+            color: var(--navy-950);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            padding: 0.4rem 1rem;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .pricing-card-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: var(--space-xs);
+        }
+
+        .pricing-card-premium .pricing-card-label {
+            color: var(--teal-bright);
+        }
+
+        .pricing-card-title {
+            font-family: var(--font-sans);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: var(--space-sm);
+            letter-spacing: -0.02em;
+        }
+
+        .pricing-card-desc {
+            font-size: 0.9rem;
+            color: var(--gray-400);
+            line-height: 1.6;
+            margin-bottom: var(--space-lg);
+        }
+
+        .pricing-amount {
+            font-family: var(--font-sans);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+            margin-bottom: var(--space-md);
+        }
+
+        .pricing-amount span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--gray-400);
+        }
+
+        .pricing-card-premium .pricing-amount {
+            color: var(--teal-bright);
+        }
+
+        .pricing-features {
+            list-style: none;
+            flex: 1;
+            margin-bottom: var(--space-lg);
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            font-size: 0.9rem;
+            color: var(--gray-300);
+            line-height: 1.5;
+            margin-bottom: var(--space-sm);
+        }
+
+        .pricing-features li svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--teal);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .pricing-card-standard .pricing-features li svg {
+            stroke: var(--gray-500);
+        }
+
+        .pricing-upgrade-hint {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            line-height: 1.5;
+            margin-bottom: var(--space-lg);
+            padding-top: var(--space-sm);
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .pricing-trust-line {
+            font-size: 0.8rem;
+            color: var(--teal);
+            font-weight: 500;
+            margin-bottom: var(--space-lg);
+        }
+
+        .pricing-cta {
+            margin-top: auto;
+            width: 100%;
+            padding: 1rem 1.5rem;
+            font-family: var(--font-sans);
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(0, 168, 204, 0.3);
+            background: transparent;
+            color: var(--white);
+        }
+
+        .pricing-cta:hover {
+            background: rgba(0, 168, 204, 0.1);
+            border-color: var(--teal);
+        }
+
+        .pricing-card-premium .pricing-cta {
+            background: var(--teal);
+            color: var(--navy-950);
+            border-color: var(--teal);
+            padding: 1.15rem 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 168, 204, 0.3);
+        }
+
+        .pricing-card-premium .pricing-cta:hover {
+            background: var(--teal-bright);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(0, 168, 204, 0.4);
+        }
+
+        .pricing-card-exclusive .pricing-cta {
+            border-color: rgba(0, 168, 204, 0.5);
+            color: var(--teal-bright);
+        }
+
+        .pricing-card-exclusive .pricing-cta:hover {
+            background: rgba(0, 168, 204, 0.08);
+            border-color: var(--teal);
+            color: var(--white);
+        }
+
+        /* FAQ */
+        .pricing-faq {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .pricing-faq h3 {
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: var(--space-lg);
+            text-align: center;
+        }
+
+        .faq-list {
+            list-style: none;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(0, 168, 204, 0.1);
+            transition: var(--transition-quick);
+        }
+
+        .faq-item button {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-md) 0;
+            background: none;
+            border: none;
+            color: var(--gray-200);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-align: left;
+            cursor: pointer;
+            transition: var(--transition-quick);
+        }
+
+        .faq-item button:hover {
+            color: var(--white);
+        }
+
+        .faq-item button svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--teal);
+            flex-shrink: 0;
+            margin-left: var(--space-sm);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.is-open button svg {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease;
+        }
+
+        .faq-answer-inner {
+            padding-bottom: var(--space-md);
+            color: var(--gray-400);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
         /* CTA Section */
         .cta-section {
             background: var(--navy-800);
@@ -692,6 +1068,21 @@
             .cta-section h2 {
                 font-size: 3rem;
             }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 480px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .pricing-card-premium {
+                transform: none;
+            }
+
+            .pricing-card-premium:hover {
+                transform: translateY(-4px);
+            }
         }
 
         @media (max-width: 768px) {
@@ -740,6 +1131,29 @@
                 grid-template-columns: 1fr;
                 gap: var(--space-lg);
             }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card-premium {
+                transform: none;
+                min-height: auto;
+            }
+
+            .pricing-card-premium:hover {
+                transform: translateY(-4px);
+            }
+
+            .pricing-card-standard,
+            .pricing-card-exclusive {
+                min-height: auto;
+            }
+
+            .testimonial-strip {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
             
             .footer-content {
                 grid-template-columns: 1fr;
@@ -765,6 +1179,7 @@
                 <div class="logo">VARRATEK</div>
                 <ul class="nav-links">
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
                     <li><a href="#why-tekvarra">Why Us</a></li>
                     <li><a href="#process">Process</a></li>
                     <li><a href="#technology">Technology</a></li>
@@ -859,6 +1274,120 @@
                     <h3>Compliance & Governance</h3>
                     <p>Navigate complex regulatory requirements including SOC 2, ISO 27001, HIPAA, PCI DSS, and GDPR with tailored compliance frameworks and audit preparation.</p>
                 </div>
+            </div>
+
+            <!-- Services & Pricing Section -->
+            <div class="section-header fade-in" style="margin-top: var(--space-2xl);">
+                <span class="section-tag">Services & Pricing</span>
+                <h2 class="section-title">Choose Your Protection Level</h2>
+                <p class="section-description">Transparent, tiered security engagements designed for startups through enterprise. Select the right fit for your risk profile and growth stage.</p>
+            </div>
+
+            <div class="testimonial-strip fade-in">
+                <p>"VarraTek didn't just audit our systems—they gave us a clear roadmap and the confidence to scale. Worth every dollar." <span class="attribution">— CTO, Series B SaaS</span></p>
+            </div>
+
+            <div class="trust-badges fade-in">
+                <div class="trust-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
+                    ISO-Ready Frameworks
+                </div>
+                <div class="trust-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z" /></svg>
+                    Secure Infrastructure
+                </div>
+                <div class="trust-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    24/7 Support
+                </div>
+            </div>
+
+            <div id="pricing" class="pricing-grid">
+                <!-- Standard -->
+                <div class="pricing-card pricing-card-standard fade-in">
+                    <span class="pricing-card-label">Foundational Protection</span>
+                    <h3 class="pricing-card-title">Standard</h3>
+                    <p class="pricing-card-desc">A strong starting point for businesses beginning their security journey.</p>
+                    <div class="pricing-amount">$700 <span>one-time</span></div>
+                    <ul class="pricing-features">
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Website Security Audit</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Basic Network Vulnerability Scan</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Firewall Configuration</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Basic Penetration Testing</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Security Report (PDF)</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>14 Days Email Support</li>
+                    </ul>
+                    <p class="pricing-upgrade-hint">Upgrade to Premium for incident response planning, cloud hardening, and priority support.</p>
+                    <button class="pricing-cta">Get Protected</button>
+                </div>
+
+                <!-- Premium - Most Popular -->
+                <div class="pricing-card pricing-card-premium fade-in">
+                    <span class="pricing-badge">Most Popular</span>
+                    <span class="pricing-card-label">Complete Business Protection</span>
+                    <h3 class="pricing-card-title">Premium</h3>
+                    <p class="pricing-card-desc">For organizations that cannot afford downtime, data loss, or reputation damage.</p>
+                    <div class="pricing-amount">$1,500 – $3,000 <span>engagement</span></div>
+                    <ul class="pricing-features">
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Everything in Standard, plus:</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Full Infrastructure Audit (On-prem + Cloud)</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Advanced Web & Network Penetration Testing</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Cloud Security Hardening</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Active Directory Security Review</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Security Policy & Compliance Drafting</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Incident Response Plan</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>30–60 Days Support</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Priority Response (24–48 hrs)</li>
+                    </ul>
+                    <p class="pricing-trust-line">Most chosen by growing businesses.</p>
+                    <button class="pricing-cta">Secure My Business</button>
+                </div>
+
+                <!-- Exclusive -->
+                <div class="pricing-card pricing-card-exclusive fade-in">
+                    <span class="pricing-card-label">Enterprise Cyber Leadership</span>
+                    <h3 class="pricing-card-title">Exclusive</h3>
+                    <p class="pricing-card-desc">For enterprises that treat cybersecurity as a strategic advantage—not just protection.</p>
+                    <div class="pricing-amount">Custom <span>enterprise</span></div>
+                    <ul class="pricing-features">
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Everything in Premium, plus:</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Red Team Simulation</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Continuous Threat Monitoring</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>SIEM Deployment</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Endpoint Detection & Response (EDR)</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Zero Trust Architecture Implementation</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Employee Security Training</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Dedicated Security Consultant</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>24/7 Incident Response Retainer</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Quarterly Executive Security Reports</li>
+                    </ul>
+                    <button class="pricing-cta">Talk to Our Experts</button>
+                </div>
+            </div>
+
+            <!-- Pricing FAQ -->
+            <div class="pricing-faq fade-in">
+                <h3>Frequently Asked Questions</h3>
+                <ul class="faq-list">
+                    <li class="faq-item">
+                        <button type="button" aria-expanded="false" aria-controls="faq-a1" id="faq-q1">What's included in the initial engagement?<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg></button>
+                        <div class="faq-answer" id="faq-a1" role="region" aria-labelledby="faq-q1">
+                            <div class="faq-answer-inner">Every engagement starts with a scoping call to align on your infrastructure, compliance needs, and timeline. Deliverables (audit report, remediation roadmap, etc.) are defined upfront. Premium and Exclusive tiers include extended support and follow-up remediation guidance.</div>
+                        </div>
+                    </li>
+                    <li class="faq-item">
+                        <button type="button" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">Can we upgrade or downgrade later?<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg></button>
+                        <div class="faq-answer" id="faq-a2" role="region" aria-labelledby="faq-q2">
+                            <div class="faq-answer-inner">Yes. Many clients start with Standard or Premium and move to Exclusive as they scale. We can also structure retainer agreements for ongoing monitoring and incident response beyond the initial engagement.</div>
+                        </div>
+                    </li>
+                    <li class="faq-item">
+                        <button type="button" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">How long does a typical engagement take?<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg></button>
+                        <div class="faq-answer" id="faq-a3" role="region" aria-labelledby="faq-q3">
+                            <div class="faq-answer-inner">Standard engagements typically complete within 2–3 weeks. Premium engagements range from 4–8 weeks depending on scope. Exclusive engagements are custom-scoped and often run on quarterly or annual cycles with dedicated resources.</div>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
@@ -1097,9 +1626,28 @@
         });
 
         // CTA Button interactions
-        document.querySelectorAll('.btn-primary, .btn-secondary, .cta-header').forEach(button => {
+        document.querySelectorAll('.btn-primary, .btn-secondary, .cta-header, .pricing-cta').forEach(button => {
             button.addEventListener('click', () => {
                 alert('Thank you for your interest! A consultation scheduling form would appear here.');
+            });
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-item button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.faq-item');
+                const isOpen = item.classList.contains('is-open');
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    i.classList.remove('is-open');
+                    i.querySelector('.faq-answer').style.maxHeight = '';
+                    i.querySelector('button').setAttribute('aria-expanded', 'false');
+                });
+                if (!isOpen) {
+                    item.classList.add('is-open');
+                    const answer = item.querySelector('.faq-answer');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    btn.setAttribute('aria-expanded', 'true');
+                }
             });
         });
     </script>
