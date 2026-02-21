@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{meta_description}}">
+    <meta name="keywords" content="{{keywords}}">
+    <title>{{title}} — VarraTek Security</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --navy-950: #06101f;
+            --navy-900: #0a1628;
+            --teal: #00a8cc;
+            --teal-bright: #00c4e8;
+            --white: #ffffff;
+            --gray-100: #f4f5f7;
+            --gray-300: #9ba3af;
+            --font-serif: 'Instrument Serif', Georgia, serif;
+            --font-sans: 'Archivo', -apple-system, sans-serif;
+        }
+        body {
+            font-family: var(--font-sans);
+            background: var(--navy-950);
+            color: var(--gray-100);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem; }
+        header {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(0, 168, 204, 0.12);
+        }
+        .logo {
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            font-size: 1rem;
+        }
+        .logo a { color: var(--white); text-decoration: none; }
+        .logo a:hover { color: var(--teal-bright); }
+        article { padding: 3rem 0; }
+        .blog-content h1 {
+            font-family: var(--font-serif);
+            font-size: 2.25rem;
+            font-weight: 400;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        .blog-content h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--white);
+            margin: 2rem 0 0.75rem;
+        }
+        .blog-content h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--teal-bright);
+            margin: 1.5rem 0 0.5rem;
+        }
+        .blog-content p {
+            color: var(--gray-300);
+            margin-bottom: 1rem;
+            line-height: 1.75;
+        }
+        .blog-content ul, .blog-content ol {
+            color: var(--gray-300);
+            margin: 0 0 1rem 1.5rem;
+            line-height: 1.75;
+        }
+        .blog-cta {
+            margin-top: 2.5rem;
+            padding: 1.5rem;
+            background: rgba(0, 168, 204, 0.08);
+            border: 1px solid rgba(0, 168, 204, 0.2);
+            text-align: center;
+        }
+        .blog-cta a {
+            color: var(--teal-bright);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .blog-cta a:hover { text-decoration: underline; }
+        footer {
+            padding: 2rem 0;
+            border-top: 1px solid rgba(0, 168, 204, 0.08);
+            color: var(--gray-300);
+            font-size: 0.85rem;
+        }
+        footer a { color: var(--teal); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo"><a href="/">VARRATEK</a></div>
+        </header>
+        <article>
+            <div class="blog-content">
+                {{content}}
+            </div>
+            <div class="blog-cta">
+                <p>Need enterprise-grade security for your organization?</p>
+                <p><a href="/contact">Get in touch with VarraTek Security →</a></p>
+            </div>
+        </article>
+        <footer>
+            <a href="/">← Back to VarraTek Security</a>
+        </footer>
+    </div>
+</body>
+</html>
