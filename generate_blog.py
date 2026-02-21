@@ -8,7 +8,7 @@ import os
 import re
 import subprocess
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 # ---------------------------------------------------------------------------
@@ -338,7 +338,7 @@ def publish_existing(path_str: str) -> None:
         sys.exit("Only .md and .html drafts are supported.")
 
     url = f"{SITE_BASE_URL}/blog/published/{slug}.html"
-    lastmod = datetime.utcnow().strftime("%Y-%m-%d")
+    lastmod = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     add_url_to_sitemap(url, lastmod)
     commit_message = f"New blog post: {title}"
     if not git_add_commit_push(commit_message):
@@ -367,7 +367,7 @@ def publish_draft(slug: str, title: str) -> bool:
     """Move draft to published, update sitemap, git commit and push."""
     move_to_published(slug)
     url = f"{SITE_BASE_URL}/blog/published/{slug}.html"
-    lastmod = datetime.utcnow().strftime("%Y-%m-%d")
+    lastmod = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     add_url_to_sitemap(url, lastmod)
     commit_message = f"New blog post: {title}"
     if not git_add_commit_push(commit_message):
